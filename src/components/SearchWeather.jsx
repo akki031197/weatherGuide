@@ -43,6 +43,7 @@ const SearchWeather = () => {
   let temp = (data.main.temp - 273.15).toFixed(2);
   let temp_min = (data.main.temp_min - 273.15).toFixed(2);
   let temp_max = (data.main.temp_max - 273.15).toFixed(2);
+  let feels_like = (data.main.feels_like - 273.15).toFixed(2);
 
   //Date
   let d = new Date();
@@ -79,7 +80,7 @@ const SearchWeather = () => {
                   <div className="input-group mb-4 w-75 mx-auto">
                     <input
                       type="search"
-                      className="form-control"
+                      className="form-control shadow-none"
                       placeholder="Search City"
                       aria-label="Search City"
                       aria-describedby="basic-addon2"
@@ -106,11 +107,14 @@ const SearchWeather = () => {
                   </p>
                   <hr />
                   <i className={`fas ${emoji} fa-4x`}></i>
-                  <h1 className="fw-bolder mb-5">{temp}&deg;c</h1>
+                  <h1 className="fw-bolder ">{temp}&deg;c</h1>
+                  <p className="fw-bolder ">Feels Like:{feels_like}&deg;c</p>
+                  <p className="fw-bolder ">Wind Speed:{data.wind.speed}</p>
                   <p className="lead fw-bolder mb-0">{data.weather[0].main}</p>
                   <p className="lead">
                     {temp_min}&deg;c | {temp_max}&deg;c
                   </p>
+                  <p className="fw-bolder">Humidity:{data.main.humidity}</p>
                 </div>
               </div>
             </div>
