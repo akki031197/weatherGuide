@@ -9,7 +9,7 @@ const SearchWeather = () => {
   useEffect(() => {
     const fetchWeather = async () => {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=335d56644e2f2c48c5abff1901d7d372`
+        `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${add_your_own_api_key}`
       );
       if (componentMounted) {
         setData(await response.json());
